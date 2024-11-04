@@ -4,19 +4,18 @@ document.addEventListener('DOMContentLoaded', (event)=> {
     const cardName = document.getElementById ('cardName');
     const cardPrice = document.getElementById ('cardPrice');
     const cardAmount = document.getElementById ('cardAmount');
+    const CardInput = document.getElementById('cardInput');
     const cardList = document.getElementById ('cardList');
 
-    const predefinedData = {
-        packName: 'Obsidian Flames',
-        cardName: 'Pikachu',
-        cardPrice: 1,
-        cardAmount: 1,
-    };
-
+    // Sætter de foruddefinerede værdier som placeholder i input felterne
     packName.placeholder = predefinedData.packName;
     cardName.placeholder = predefinedData.cardName;
     cardPrice.placeholder = predefinedData.cardPrice;
+    cardAmount.placeholder = predefinedData.cardAmount;
 
+    //Eventlistener for Add Button'en
+    //Når addButton klikkes, tjekkes om inputfeltet ikke er tomt. 
+    //Hvis sandt, oprettes et nyt li-element med inputværdien og føjes til ul-listen.
     addButton.addEventListener('click', () => {
         const packName = packName.value.trim() || predefinedData.packName;
         const cardName = cardName.value.trim() || predefinedData.cardName;
@@ -36,6 +35,7 @@ document.addEventListener('DOMContentLoaded', (event)=> {
             //her "printes" det nye Element ind på cardList
             cardList.appendChild(li);
 
+            // Tømmer inputfelterne og gør klar til næste indtastning.
             packName.value = "";
             cardName.value = "";
             cardPrice.value = "";
@@ -55,11 +55,12 @@ document.addEventListener('DOMContentLoaded', (event)=> {
                 li.textContent = inputValue;
 
             cardList.appendChild(li);
+            CardInput.value = ""; // clear the input after adding
 
         }
         else 
         {
             alert("Please enter Card details.");
         }
-});
+    });
 
