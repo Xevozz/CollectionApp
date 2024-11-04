@@ -8,21 +8,27 @@
         </Head>
 
         <body>
-            
+            <!-- En container <div> indeholder et input-felt, en 'add' knap, og et <ul> element til listen. -->
             <div class="container">
                 <h1>Collection List</h1>
 
+                <!-- indeholder værdier fra cardList -->
                 <input type="text" id="packName" placeholder="Enter Package Name">
                 <input type="text" id="cardName" placeholder="Enter Name">
                 <input type="number" id="cardPrice" placeholder="Enter Price">
+                <input type="number" id="cardAmount" placeholder="Enter Amount">
 
+                <!-- addButton: En knap til at tilføje elementer til listen -->
                 <button id="addButton">Add Card to Collection</button>
 
+                <!-- woodPelletList: En ul-liste til at vise de tilføjede Card oplysninger -->
                 <ul id="cardList"></ul>
 
-                <script src="JavaScript.js"></script>
-                
             </div>
+
+            <script src="JavaScript.js"></script>
+
         </body>
+
     </html>
 
