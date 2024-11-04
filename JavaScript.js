@@ -1,11 +1,20 @@
 document.addEventListener('DOMContentLoaded', (event)=> {
     const addButton = document.getElementById('addButton');
+    const clearButton = document.getElementById('clearButton');
     const packName = document.getElementById ('packName');
     const cardName = document.getElementById ('cardName');
     const cardPrice = document.getElementById ('cardPrice');
     const cardAmount = document.getElementById ('cardAmount');
-    const CardInput = document.getElementById('cardInput');
+    const cardInput = document.getElementById('cardInput');
     const cardList = document.getElementById ('cardList');
+
+    //præ-defineret Data til Placeholders til bl.a eksempler af input
+    const predefinedData = {
+        packName: 'Obsidian Flame',
+        cardName: 'Pikachu',
+        cardPrice: 'Price',
+        cardAmount: 'Amount'
+    };
 
     // Sætter de foruddefinerede værdier som placeholder i input felterne
     packName.placeholder = predefinedData.packName;
@@ -25,12 +34,12 @@ document.addEventListener('DOMContentLoaded', (event)=> {
         //Bestemmer værdierne for inputtet - hvis ikke korrekt input gives, exekveres der ikke.
         if (packName !== "" && cardName !== "" && cardPrice !== "" && cardAmount !== "") {
 
-            //Her tjekkes om variablerne Brand, Price og Quality stringsne ikke mangler input
+            //Her tjekkes om variablerne packName, cardName, cardPrice & cardAmount strings ikke mangler input
             const li = document.createElement('li');
 
             //Hvis input er korrekt og data er udfyldt for strings
             //bliver der created et nyt element med angiven data.
-            li.textContent = `Pack Name: ${predefinedData.packName}, Card Name: ${cardName}, Card Price: ${cardPrice}, Card Amount: ${cardAmount}`;
+            li.textContent = `packName: ${predefinedData.packName}, cardName: ${predefinedData.cardName}, cardPrice: ${predefinedData.cardPrice}, cardAmount: ${predefinedData.cardAmount}`;
             
             //her "printes" det nye Element ind på cardList
             cardList.appendChild(li);
@@ -55,12 +64,19 @@ document.addEventListener('DOMContentLoaded', (event)=> {
                 li.textContent = inputValue;
 
             cardList.appendChild(li);
-            CardInput.value = ""; // clear the input after adding
+            cardInput.value = ""; // clear the input after adding
 
         }
         else 
         {
             alert("Please enter Card details.");
         }
+    });
+        // Event listener for Clear Button
+        // Når clearButton klikkes, 
+        // tømmes ul-listen ved at sætte innerHTML til en tom streng.
+        clearButton.addEventListener('click', () => {
+        cardList.innerHTML = "";
+
     });
 
